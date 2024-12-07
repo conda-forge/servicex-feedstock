@@ -1,5 +1,5 @@
 {% set name = "servicex" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/servicex-{{ version }}.tar.gz
-  sha256: 10fe7aa45ade9ba978563e20cf51f80aa149139423fd0b0766cd7e72e06e1f74
+  sha256: e590b2b733d7adf19753c39f1dedd4c9bc317d0b5e489ea73eb756e98027728a
 
 build:
   noarch: python
   entry_points:
     - servicex = servicex.app.main:app
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
