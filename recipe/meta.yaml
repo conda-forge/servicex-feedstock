@@ -1,5 +1,6 @@
 {% set name = "servicex" %}
 {% set version = "3.0.1" %}
+{% set python_min = "3.8" %}
 
 package:
   name: {{ name|lower }}
@@ -14,15 +15,15 @@ build:
   entry_points:
     - servicex = servicex.app.main:app
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling >=1.13.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - qastle >=0.17
     - func-adl >=3.2.6
     - requests >=2.31
@@ -52,6 +53,7 @@ test:
     - pip check
     - servicex --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
