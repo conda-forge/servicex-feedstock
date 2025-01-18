@@ -1,6 +1,6 @@
 {% set name = "servicex" %}
 {% set version = "3.1.0" %}
-{% set python_min = "3.8" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -42,7 +42,6 @@ requirements:
     - aiofile
     - make-it-sync
     - ruamel.yaml >=0.18
-    - ccorp-yaml-include-relative-path >=0.0.4
     - filelock >=3.12.0
     - tenacity >=9.0.0
 
