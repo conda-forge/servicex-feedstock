@@ -1,29 +1,33 @@
-{% set name = "servicex" %}
-{% set version = "3.1.0" %}
-{% set python_min = "3.9" %}
+schema_version: 1
+
+context:
+  name: servicex
+  version: 3.1.0
+  python_min: 3.9
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/servicex-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/servicex-${{ version }}.tar.gz
   sha256: ebbedeffcaf436f086b1ddc8f3882f2a95a8295556eb54439693e3e0485737d2
 
 build:
+  number: 1
   noarch: python
-  entry_points:
-    - servicex = servicex.app.main:app
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - servicex = servicex.app.main:app
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - hatchling >=1.13.0
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - qastle >=0.17
     - func-adl >=3.2.6
     - requests >=2.31
@@ -45,24 +49,26 @@ requirements:
     - filelock >=3.12.0
     - tenacity >=9.0.0
 
-test:
-  imports:
-    - servicex
-  commands:
-    - pip check
-    - servicex --help
-  requires:
-    - python {{ python_min }}
-    - pip
+tests:
+  - python:
+      imports:
+        - servicex
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+    script:
+      - servicex --help
 
 about:
-  home: https://github.com/ssl-hep/ServiceX_frontend
   summary: Python SDK and CLI Client for ServiceX
   license: BSD-3-Clause
   license_file: LICENSE
-  doc_url: https://servicex-frontend.readthedocs.io/
-  dev_url: https://github.com/ssl-hep/ServiceX_frontend
-
+  homepage: https://github.com/ssl-hep/ServiceX_frontend
+  repository: https://github.com/ssl-hep/ServiceX_frontend
+  documentation: https://servicex-frontend.readthedocs.io/
 
 extra:
   recipe-maintainers:
