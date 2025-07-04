@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: servicex
-  version: "3.1.1"
+  version: "3.2.0"
   python_min: '3.9'
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/servicex-${{ version }}.tar.gz
-  sha256: de03b459df4992fad059b51dce2235e3b23197e57b10db7dc46fb6bbfee66d29
+  sha256: e6cf708a191ad8c0c5c034cc6962fa8cb50f4bcbd958702bfb6cb000ab974208
 
 build:
   number: 0
@@ -34,6 +34,7 @@ requirements:
     - pydantic >=2.6.0
     - aiohttp-retry >=2.8.3
     - httpx >=0.24
+    - httpx-retries >=0.3.2
     - aioboto3 >=14.1.0
     - tinydb >=4.7
     - google-auth >=2.17
