@@ -34,6 +34,7 @@ requirements:
     - pydantic >=2.6.0
     - aiohttp-retry >=2.8.3
     - httpx >=0.24
+    - httpx-retries >=0.3.2
     - aioboto3 >=14.1.0
     - tinydb >=4.7
     - google-auth >=2.17
