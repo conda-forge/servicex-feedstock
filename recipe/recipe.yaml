@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: servicex
-  version: "3.2.0"
+  version: "3.2.1"
   python_min: '3.9'
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/servicex-${{ version }}.tar.gz
-  sha256: e6cf708a191ad8c0c5c034cc6962fa8cb50f4bcbd958702bfb6cb000ab974208
+  sha256: ac3ce0c632ff4dd5990c1cb516c8b22506583ed9dabbf57522353ccceb4c32fe
 
 build:
   number: 0
