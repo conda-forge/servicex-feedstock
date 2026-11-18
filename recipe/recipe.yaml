@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   version: "3.4.0"
-  python_min: '3.9'
+  python_min: '3.10'
 
 package:
   name: "servicex"
@@ -31,7 +31,6 @@ requirements:
     - func-adl >=3.2.6
     - requests >=2.31
     - pydantic >=2.6.0
-    - aiohttp-retry >=2.8.3
     - httpx >=0.24
     - httpx-retries >=0.3.2
     - aioboto3 >=14.1.0
@@ -40,14 +39,14 @@ requirements:
     - typer >=0.12.1
     - pyyaml >=6.0
     - types-pyyaml >=6.0
-    - importlib-metadata  # python <= 3.9
     - typing_extensions  # python <= 3.10
     - rich >=13.0.0
-    - aiofile
     - make-it-sync
     - ruamel.yaml >=0.18.7
     - filelock >=3.12.0
     - tenacity >=9.0.0
+    - pkce >=1.0.3
+    - qrcode >=8.2
 
 tests:
   - python:
