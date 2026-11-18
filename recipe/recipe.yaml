@@ -9,7 +9,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/servicex/servicex-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/s/servicex/servicex-${{ version }}.tar.gz
   sha256: 692dfff595a0020d681669be941e70db92884675293250c971f091611fd70e79
 
 build:
